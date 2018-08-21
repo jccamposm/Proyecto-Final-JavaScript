@@ -129,3 +129,18 @@ button0.addEventListener('click', function(){
     }
   }
 })
+
+var buttonPunto = document.getElementById('punto')
+buttonPunto.addEventListener('click', function(){
+  if (objPantalla.innerHTML == "0") {
+    objPantalla.innerHTML = "0."
+  } else {
+    if (objPantalla.innerHTML.length < 8) {
+        if (objPantalla.innerHTML.indexOf(".") < 0) {
+            objPantalla.innerHTML = objPantalla.innerHTML + "."
+        }
+    } else {
+        alert('Excede la cantidad permitida de caracteres')
+    }
+  }
+})
