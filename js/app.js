@@ -146,6 +146,21 @@ var Calculadora = {
         }
       }
     })
+
+    var buttonON = document.getElementById('on')
+    buttonON.addEventListener('click', function() {
+      objPantalla.innerHTML = "0"
+    })
+
+    var buttonSign = document.getElementById('sign')
+    buttonSign.addEventListener('click', function() {
+      if (objPantalla.innerHTML.indexOf("-") < 0) {
+          objPantalla.innerHTML = "-" + objPantalla.innerHTML
+      } else {
+        var CadenaValor = objPantalla.innerHTML
+        objPantalla.innerHTML = CadenaValor.replace("-","")
+      }
+    })
   }
 }
 
