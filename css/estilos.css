@@ -118,7 +118,9 @@ body{
   font-weight: bold;
 }
 
-
+.tecla:active {
+  transform : perspective(600px) translateZ(-70px) rotateZ(-0.5deg) rotateX(-10deg);
+}
 
 .titulo-container{
   width: 100%;
