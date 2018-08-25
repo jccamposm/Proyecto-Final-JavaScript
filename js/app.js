@@ -1,8 +1,10 @@
 var objPantalla = document.getElementById('display')
 
+var button1 = document.getElementById('1')
+
 var Calculadora = {
   init: function () {
-    var button1 = document.getElementById('1')
+
     button1.addEventListener('click', function(){
       if (objPantalla.innerHTML == "0") {
         objPantalla.innerHTML = "1"
@@ -161,7 +163,22 @@ var Calculadora = {
         objPantalla.innerHTML = CadenaValor.replace("-","")
       }
     })
+  },
+  capturaTeclado: function (event) {
+    var tecla = event.which || event.keyCode;
+    // alert(tecla);
+    switch (tecla) {
+      case 48:
+        button0.active;
+        break;
+      case 49:
+        this.button1.active;
+        break;
+      default:
+        alert(tecla);
+    }
   }
 }
 
-Calculadora.init()
+Calculadora.init();
+document.onkeypress = Calculadora.capturaTeclado;
