@@ -1,5 +1,5 @@
-var objPantalla = document.getElementById('display')
-
+var objPantalla = document.getElementById('display');
+var EjecutarMostrarNum = false;
 var Calculadora = {
   init: function () {
     var button1 = document.getElementById('1')
@@ -54,7 +54,7 @@ var Calculadora = {
       }
     })
   },
-  MostrarNumero: function(numDisp) {
+  MostrarNumero: setTimeout(function(numDisp) {
     alert(numDisp)
     if (objPantalla.innerHTML == "0") {
       objPantalla.innerHTML = numDisp
@@ -65,7 +65,7 @@ var Calculadora = {
           alert('Excede la cantidad permitida de caracteres')
       }
     }
-  },
+  },3000),
   capturaTeclado: function (event) {
     var tecla = event.which || event.keyCode;
     // alert(tecla);
