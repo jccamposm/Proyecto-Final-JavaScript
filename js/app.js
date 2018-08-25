@@ -1,138 +1,28 @@
 var objPantalla = document.getElementById('display')
 
-var button1 = document.getElementById('1')
-
 var Calculadora = {
   init: function () {
-
-    button1.addEventListener('click', function(){
-      if (objPantalla.innerHTML == "0") {
-        objPantalla.innerHTML = "1"
-      } else {
-        if (objPantalla.innerHTML.length < 8) {
-            objPantalla.innerHTML = objPantalla.innerHTML + "1"
-        } else {
-            alert('Excede la cantidad permitida de caracteres')
-        }
-      }
-    })
-
+    var button1 = document.getElementById('1')
     var button2 = document.getElementById('2')
-    button2.addEventListener('click', function(){
-      if (objPantalla.innerHTML == "0") {
-        objPantalla.innerHTML = "2"
-      } else {
-        if (objPantalla.innerHTML.length < 8) {
-            objPantalla.innerHTML = objPantalla.innerHTML + "2"
-        } else {
-            alert('Excede la cantidad permitida de caracteres')
-        }
-      }
-    })
-
     var button3 = document.getElementById('3')
-    button3.addEventListener('click', function(){
-      if (objPantalla.innerHTML == "0") {
-        objPantalla.innerHTML = "3"
-      } else {
-        if (objPantalla.innerHTML.length < 8) {
-            objPantalla.innerHTML = objPantalla.innerHTML + "3"
-        } else {
-            alert('Excede la cantidad permitida de caracteres')
-        }
-      }
-    })
-
     var button4 = document.getElementById('4')
-    button4.addEventListener('click', function(){
-      if (objPantalla.innerHTML == "0") {
-        objPantalla.innerHTML = "4"
-      } else {
-        if (objPantalla.innerHTML.length < 8) {
-            objPantalla.innerHTML = objPantalla.innerHTML + "4"
-        } else {
-            alert('Excede la cantidad permitida de caracteres')
-        }
-      }
-    })
-
     var button5 = document.getElementById('5')
-    button5.addEventListener('click', function(){
-      if (objPantalla.innerHTML == "0") {
-        objPantalla.innerHTML = "5"
-      } else {
-        if (objPantalla.innerHTML.length < 8) {
-            objPantalla.innerHTML = objPantalla.innerHTML + "5"
-        } else {
-            alert('Excede la cantidad permitida de caracteres')
-        }
-      }
-    })
-
     var button6 = document.getElementById('6')
-    button6.addEventListener('click', function(){
-      if (objPantalla.innerHTML == "0") {
-        objPantalla.innerHTML = "6"
-      } else {
-        if (objPantalla.innerHTML.length < 8) {
-            objPantalla.innerHTML = objPantalla.innerHTML + "6"
-        } else {
-            alert('Excede la cantidad permitida de caracteres')
-        }
-      }
-    })
-
     var button7 = document.getElementById('7')
-    button7.addEventListener('click', function(){
-      if (objPantalla.innerHTML == "0") {
-        objPantalla.innerHTML = "7"
-      } else {
-        if (objPantalla.innerHTML.length < 8) {
-            objPantalla.innerHTML = objPantalla.innerHTML + "7"
-        } else {
-            alert('Excede la cantidad permitida de caracteres')
-        }
-      }
-    })
-
     var button8 = document.getElementById('8')
-    button8.addEventListener('click', function(){
-      if (objPantalla.innerHTML == "0") {
-        objPantalla.innerHTML = "8"
-      } else {
-        if (objPantalla.innerHTML.length < 8) {
-            objPantalla.innerHTML = objPantalla.innerHTML + "8"
-        } else {
-            alert('Excede la cantidad permitida de caracteres')
-        }
-      }
-    })
-
     var button9 = document.getElementById('9')
-    button9.addEventListener('click', function(){
-      if (objPantalla.innerHTML == "0") {
-        objPantalla.innerHTML = "9"
-      } else {
-        if (objPantalla.innerHTML.length < 8) {
-            objPantalla.innerHTML = objPantalla.innerHTML + "9"
-        } else {
-            alert('Excede la cantidad permitida de caracteres')
-        }
-      }
-    })
-
     var button0 = document.getElementById('0')
-    button0.addEventListener('click', function(){
-      if (objPantalla.innerHTML == "0") {
-        objPantalla.innerHTML = "0"
-      } else {
-        if (objPantalla.innerHTML.length < 8) {
-            objPantalla.innerHTML = objPantalla.innerHTML + "0"
-        } else {
-            alert('Excede la cantidad permitida de caracteres')
-        }
-      }
-    })
+
+    button1.addEventListener('click', this.MostrarNumero("1"))
+    button2.addEventListener('click', this.MostrarNumero("2"))
+    button3.addEventListener('click', MostrarNumero("3"))
+    button4.addEventListener('click', MostrarNumero("4"))
+    button5.addEventListener('click', MostrarNumero("5"))
+    button6.addEventListener('click', MostrarNumero("6"))
+    button7.addEventListener('click', MostrarNumero("7"))
+    button8.addEventListener('click', MostrarNumero("8"))
+    button9.addEventListener('click', MostrarNumero("9"))
+    button0.addEventListener('click', MostrarNumero("0"))
 
     var buttonPunto = document.getElementById('punto')
     buttonPunto.addEventListener('click', function(){
@@ -164,6 +54,18 @@ var Calculadora = {
       }
     })
   },
+  MostrarNumero: function(numDisp) {
+    alert(numDisp)
+    if (objPantalla.innerHTML == "0") {
+      objPantalla.innerHTML = numDisp
+    } else {
+      if (objPantalla.innerHTML.length < 8) {
+          objPantalla.innerHTML = objPantalla.innerHTML + numDisp
+      } else {
+          alert('Excede la cantidad permitida de caracteres')
+      }
+    }
+  },
   capturaTeclado: function (event) {
     var tecla = event.which || event.keyCode;
     // alert(tecla);
@@ -172,7 +74,7 @@ var Calculadora = {
         button0.active;
         break;
       case 49:
-        this.button1.active;
+        this.MostrarNumero("1");
         break;
       default:
         alert(tecla);
