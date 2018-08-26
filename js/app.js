@@ -169,10 +169,149 @@ var Calculadora = {
     // alert(tecla);
     switch (tecla) {
       case 48:
-        button0.active;
+        if (objPantalla.innerHTML == "0") {
+          objPantalla.innerHTML = "0"
+        } else {
+          if (objPantalla.innerHTML.length < 8) {
+              objPantalla.innerHTML = objPantalla.innerHTML + "0"
+          } else {
+              alert('Excede la cantidad permitida de caracteres')
+          }
+        }
         break;
       case 49:
-        this.button1.active;
+        if (objPantalla.innerHTML == "0") {
+          objPantalla.innerHTML = "1"
+        } else {
+          if (objPantalla.innerHTML.length < 8) {
+              objPantalla.innerHTML = objPantalla.innerHTML + "1"
+          } else {
+              alert('Excede la cantidad permitida de caracteres')
+          }
+        }
+        break;
+      case 50:
+        if (objPantalla.innerHTML == "0") {
+          objPantalla.innerHTML = "2"
+        } else {
+          if (objPantalla.innerHTML.length < 8) {
+              objPantalla.innerHTML = objPantalla.innerHTML + "2"
+          } else {
+              alert('Excede la cantidad permitida de caracteres')
+          }
+        }
+        break;
+      case 51:
+        if (objPantalla.innerHTML == "0") {
+          objPantalla.innerHTML = "3"
+        } else {
+          if (objPantalla.innerHTML.length < 8) {
+              objPantalla.innerHTML = objPantalla.innerHTML + "3"
+          } else {
+              alert('Excede la cantidad permitida de caracteres')
+          }
+        }
+        break;
+      case 52:
+          if (objPantalla.innerHTML == "0") {
+            objPantalla.innerHTML = "4"
+          } else {
+            if (objPantalla.innerHTML.length < 8) {
+                objPantalla.innerHTML = objPantalla.innerHTML + "4"
+            } else {
+                alert('Excede la cantidad permitida de caracteres')
+            }
+          }
+          break;
+      case 53:
+        if (objPantalla.innerHTML == "0") {
+          objPantalla.innerHTML = "5"
+        } else {
+          if (objPantalla.innerHTML.length < 8) {
+              objPantalla.innerHTML = objPantalla.innerHTML + "5"
+          } else {
+              alert('Excede la cantidad permitida de caracteres')
+          }
+        }
+        break;
+      case 54:
+        if (objPantalla.innerHTML == "0") {
+          objPantalla.innerHTML = "6"
+        } else {
+          if (objPantalla.innerHTML.length < 8) {
+              objPantalla.innerHTML = objPantalla.innerHTML + "6"
+          } else {
+              alert('Excede la cantidad permitida de caracteres')
+          }
+        }
+        break;
+      case 55:
+        if (objPantalla.innerHTML == "0") {
+          objPantalla.innerHTML = "7"
+        } else {
+          if (objPantalla.innerHTML.length < 8) {
+              objPantalla.innerHTML = objPantalla.innerHTML + "7"
+          } else {
+              alert('Excede la cantidad permitida de caracteres')
+          }
+        }
+        break;
+      case 56:
+        if (objPantalla.innerHTML == "0") {
+          objPantalla.innerHTML = "8"
+        } else {
+          if (objPantalla.innerHTML.length < 8) {
+              objPantalla.innerHTML = objPantalla.innerHTML + "8"
+          } else {
+              alert('Excede la cantidad permitida de caracteres')
+          }
+        }
+        break;
+      case 57:
+        if (objPantalla.innerHTML == "0") {
+          objPantalla.innerHTML = "9"
+        } else {
+          if (objPantalla.innerHTML.length < 8) {
+              objPantalla.innerHTML = objPantalla.innerHTML + "9"
+          } else {
+              alert('Excede la cantidad permitida de caracteres')
+          }
+        }
+        break;
+      case 8:
+        if (objPantalla.innerHTML == "0") {
+          objPantalla.innerHTML = "0"
+        } else {
+          var longCad = objPantalla.innerHTML.length
+          objPantalla.innerHTML = objPantalla.innerHTML.substring(0, longCad - 1)
+          if (objPantalla.innerHTML == "") {
+            objPantalla.innerHTML = "0"
+          }
+        }
+        break;
+      case 46:
+        if (objPantalla.innerHTML == "0") {
+          objPantalla.innerHTML = "0."
+        } else {
+          if (objPantalla.innerHTML.length < 8) {
+              if (objPantalla.innerHTML.indexOf(".") < 0) {
+                  objPantalla.innerHTML = objPantalla.innerHTML + "."
+              }
+          } else {
+              alert('Excede la cantidad permitida de caracteres')
+          }
+        }
+        break;
+      case 27:
+        objPantalla.innerHTML = "0"
+        break;
+      case 45:
+        if (objPantalla.innerHTML.indexOf("-") < 0) {
+            objPantalla.innerHTML = "-" + objPantalla.innerHTML
+        } else {
+          var CadenaValor = objPantalla.innerHTML
+          objPantalla.innerHTML = CadenaValor.replace("-","")
+        }
         break;
       default:
         alert(tecla);
