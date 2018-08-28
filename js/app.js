@@ -1,18 +1,21 @@
-var objPantalla = document.getElementById('display')
-var Operando1, Operando2, Resultado
-var Suma, Resta, Mult, Divi
+var objPantalla = document.getElementById('display')  //Pantalla de la Calculadora
+var Operando1, Operando2, Resultado  //Variables de Operación
+var Suma, Resta, Mult, Divi  //Operaciones Matemáticas a realizar
 
 
 var Calculadora = {
+  //Función que inicializa todas las funciones de la Calculadora
   init: function () {
     Operando1 = 0;
     Operando2 = 0;
     Resultado = 0;
+    //Banderas para determinar que operación se esta realizando
     Suma = false;
     Resta = false;
     Mult = false;
     Divi = false;
 
+    //Tecla Numerica 1
     var button1 = document.getElementById('1')
     button1.addEventListener('click', function(){
       if (objPantalla.innerHTML == "0") {
@@ -26,6 +29,7 @@ var Calculadora = {
       }
     })
 
+    //Tecla Numerica 2
     var button2 = document.getElementById('2')
     button2.addEventListener('click', function(){
       if (objPantalla.innerHTML == "0") {
@@ -39,6 +43,7 @@ var Calculadora = {
       }
     })
 
+    //Tecla Numerica 3
     var button3 = document.getElementById('3')
     button3.addEventListener('click', function(){
       if (objPantalla.innerHTML == "0") {
@@ -52,6 +57,7 @@ var Calculadora = {
       }
     })
 
+    //Tecla Numerica 4
     var button4 = document.getElementById('4')
     button4.addEventListener('click', function(){
       if (objPantalla.innerHTML == "0") {
@@ -65,6 +71,7 @@ var Calculadora = {
       }
     })
 
+    //Tecla Numerica 5
     var button5 = document.getElementById('5')
     button5.addEventListener('click', function(){
       if (objPantalla.innerHTML == "0") {
@@ -78,6 +85,7 @@ var Calculadora = {
       }
     })
 
+    //Tecla Numerica 6
     var button6 = document.getElementById('6')
     button6.addEventListener('click', function(){
       if (objPantalla.innerHTML == "0") {
@@ -91,6 +99,7 @@ var Calculadora = {
       }
     })
 
+    //Tecla Numerica 7
     var button7 = document.getElementById('7')
     button7.addEventListener('click', function(){
       if (objPantalla.innerHTML == "0") {
@@ -104,6 +113,7 @@ var Calculadora = {
       }
     })
 
+    //Tecla Numerica 8
     var button8 = document.getElementById('8')
     button8.addEventListener('click', function(){
       if (objPantalla.innerHTML == "0") {
@@ -117,6 +127,7 @@ var Calculadora = {
       }
     })
 
+    //Tecla Numerica 9
     var button9 = document.getElementById('9')
     button9.addEventListener('click', function(){
       if (objPantalla.innerHTML == "0") {
@@ -130,6 +141,7 @@ var Calculadora = {
       }
     })
 
+    //Tecla Numerica 0
     var button0 = document.getElementById('0')
     button0.addEventListener('click', function(){
       if (objPantalla.innerHTML == "0") {
@@ -143,6 +155,7 @@ var Calculadora = {
       }
     })
 
+    //Tecla Punto
     var buttonPunto = document.getElementById('punto')
     buttonPunto.addEventListener('click', function(){
       if (objPantalla.innerHTML == "0") {
@@ -158,6 +171,7 @@ var Calculadora = {
       }
     })
 
+    //Tecla Borrado ON
     var buttonON = document.getElementById('on')
     buttonON.addEventListener('click', function() {
       objPantalla.innerHTML = "0";
@@ -169,6 +183,7 @@ var Calculadora = {
       Operando2 = 0;
     })
 
+    //Tecla Signo
     var buttonSign = document.getElementById('sign')
     buttonSign.addEventListener('click', function() {
       if (objPantalla.innerHTML.indexOf("-") < 0) {
@@ -179,6 +194,7 @@ var Calculadora = {
       }
     })
 
+    //Tecla Suma
     var buttonSuma = document.getElementById('mas')
     buttonSuma.addEventListener('click', function() {
       if (objPantalla.innerHTML != "0") {
@@ -194,6 +210,7 @@ var Calculadora = {
       }
     })
 
+    //Tecla Resta
     var buttonResta = document.getElementById('menos')
     buttonResta.addEventListener('click', function() {
       if (objPantalla.innerHTML != "0") {
@@ -208,6 +225,7 @@ var Calculadora = {
       }
     })
 
+    //Tecla Multiplica
     var buttonMultiplica = document.getElementById('por')
     buttonMultiplica.addEventListener('click', function() {
       if (objPantalla.innerHTML != "0") {
@@ -222,6 +240,7 @@ var Calculadora = {
       }
     })
 
+    //Tecla Divide
     var buttonDivide = document.getElementById('dividido')
     buttonDivide.addEventListener('click', function() {
       if (objPantalla.innerHTML != "0") {
@@ -236,6 +255,7 @@ var Calculadora = {
       }
     })
 
+    //Tecla Igual
     var buttonResult = document.getElementById('igual')
     buttonResult.addEventListener('click', function () {
       if (objPantalla.innerHTML != "") {
@@ -272,11 +292,12 @@ var Calculadora = {
     })
   },
 
+  //Función para capturar los eventos del teclado. Se repite codigo dependiendo de la tecla.
   capturaTeclado: function (event) {
     var tecla = event.which || event.keyCode;
     // alert(tecla);
     switch (tecla) {
-      case 48:
+      case 48: //Tecla 0
         if (objPantalla.innerHTML == "0") {
           objPantalla.innerHTML = "0"
         } else {
@@ -287,7 +308,7 @@ var Calculadora = {
           }
         }
         break;
-      case 49:
+      case 49: //Tecla 1
         if (objPantalla.innerHTML == "0") {
           objPantalla.innerHTML = "1"
         } else {
@@ -298,7 +319,7 @@ var Calculadora = {
           }
         }
         break;
-      case 50:
+      case 50: //Tecla 2
         if (objPantalla.innerHTML == "0") {
           objPantalla.innerHTML = "2"
         } else {
@@ -309,7 +330,7 @@ var Calculadora = {
           }
         }
         break;
-      case 51:
+      case 51: //Tecla 3
         if (objPantalla.innerHTML == "0") {
           objPantalla.innerHTML = "3"
         } else {
@@ -320,7 +341,7 @@ var Calculadora = {
           }
         }
         break;
-      case 52:
+      case 52: //Tecla 4
           if (objPantalla.innerHTML == "0") {
             objPantalla.innerHTML = "4"
           } else {
@@ -331,7 +352,7 @@ var Calculadora = {
             }
           }
           break;
-      case 53:
+      case 53: //Tecla 5
         if (objPantalla.innerHTML == "0") {
           objPantalla.innerHTML = "5"
         } else {
@@ -342,7 +363,7 @@ var Calculadora = {
           }
         }
         break;
-      case 54:
+      case 54: //Tecla 6
         if (objPantalla.innerHTML == "0") {
           objPantalla.innerHTML = "6"
         } else {
@@ -353,7 +374,7 @@ var Calculadora = {
           }
         }
         break;
-      case 55:
+      case 55: //Tecla 7
         if (objPantalla.innerHTML == "0") {
           objPantalla.innerHTML = "7"
         } else {
@@ -364,7 +385,7 @@ var Calculadora = {
           }
         }
         break;
-      case 56:
+      case 56: //Tecla 8
         if (objPantalla.innerHTML == "0") {
           objPantalla.innerHTML = "8"
         } else {
@@ -375,7 +396,7 @@ var Calculadora = {
           }
         }
         break;
-      case 57:
+      case 57: //Tecla 9
         if (objPantalla.innerHTML == "0") {
           objPantalla.innerHTML = "9"
         } else {
@@ -386,7 +407,7 @@ var Calculadora = {
           }
         }
         break;
-      case 8:
+      case 8: //Tecla 0
         if (objPantalla.innerHTML == "0") {
           objPantalla.innerHTML = "0"
         } else {
@@ -397,7 +418,7 @@ var Calculadora = {
           }
         }
         break;
-      case 46:
+      case 46: //Tecla Punto
         if (objPantalla.innerHTML == "0") {
           objPantalla.innerHTML = "0."
         } else {
@@ -410,54 +431,16 @@ var Calculadora = {
           }
         }
         break;
-      case 27:
+      case 27: //Tecla Borrado
         objPantalla.innerHTML = "0"
+        Suma = false;
+        Resta = false;
+        Mult = false;
+        Divi = false;
+        Operando1 = 0;
+        Operando2 = 0;
         break;
-      case 45:
-        if (objPantalla.innerHTML.indexOf("-") < 0) {
-            objPantalla.innerHTML = "-" + objPantalla.innerHTML
-        } else {
-          var CadenaValor = objPantalla.innerHTML
-          objPantalla.innerHTML = CadenaValor.replace("-","")
-        }
-        break;
-      case 43:
-        if (objPantalla.innerHTML != "0") {
-          if (Operando1 == 0) {
-            Operando1 = Number(objPantalla.innerHTML)
-          }
-          Suma = true;
-          Resta = false;
-          Mult = false;
-          Divi = false;
-          objPantalla.innerHTML = "";
-        }
-        break;
-      case 42:
-        if (objPantalla.innerHTML != "0") {
-          if (Operando1 == 0) {
-            Operando1 = Number(objPantalla.innerHTML)
-          }
-          Suma = false;
-          Resta = false;
-          Mult = true;
-          Divi = false;
-          objPantalla.innerHTML = "";
-        }
-        break;
-      case 47:
-          if (objPantalla.innerHTML != "0") {
-            if (Operando1 == 0) {
-              Operando1 = Number(objPantalla.innerHTML)
-            }
-            Suma = false;
-            Resta = false;
-            Mult = false;
-            Divi = true;
-            objPantalla.innerHTML = "";
-          }
-          break;
-      case 95:
+      case 45: //Tecla Resta. Oprimir solo el signo menos
         if (objPantalla.innerHTML != "0") {
           if (Operando1 == 0) {
             Operando1 = Number(objPantalla.innerHTML)
@@ -469,7 +452,51 @@ var Calculadora = {
           objPantalla.innerHTML = "";
         }
         break;
-      case 13:
+      case 43: //Tecla Suma
+        if (objPantalla.innerHTML != "0") {
+          if (Operando1 == 0) {
+            Operando1 = Number(objPantalla.innerHTML)
+          }
+          Suma = true;
+          Resta = false;
+          Mult = false;
+          Divi = false;
+          objPantalla.innerHTML = "";
+        }
+        break;
+      case 42: // Tecla Multiplicación (asterisco)
+        if (objPantalla.innerHTML != "0") {
+          if (Operando1 == 0) {
+            Operando1 = Number(objPantalla.innerHTML)
+          }
+          Suma = false;
+          Resta = false;
+          Mult = true;
+          Divi = false;
+          objPantalla.innerHTML = "";
+        }
+        break;
+      case 47: //Tecla División (Slash arriba del número 7)
+          if (objPantalla.innerHTML != "0") {
+            if (Operando1 == 0) {
+              Operando1 = Number(objPantalla.innerHTML)
+            }
+            Suma = false;
+            Resta = false;
+            Mult = false;
+            Divi = true;
+            objPantalla.innerHTML = "";
+          }
+          break;
+      case 95: //Tecla para cambiar Signo. Se valida el Shift y el menos ya que quedaria igual que ASCII de la resta
+        if (objPantalla.innerHTML.indexOf("-") < 0) {
+            objPantalla.innerHTML = "-" + objPantalla.innerHTML
+        } else {
+          var CadenaValor = objPantalla.innerHTML
+          objPantalla.innerHTML = CadenaValor.replace("-","")
+        }
+        break;
+      case 13: //Resultado (Enter)
         if (objPantalla.innerHTML != "") {
           if (Operando1 != 0) {
             Operando2 = Number(objPantalla.innerHTML)
@@ -507,6 +534,7 @@ var Calculadora = {
     }
   },
 
+  
   // SumaOp: function (Op1, Op2) {
   //   var Canti
   //   Canti = Op1 + Op2;
