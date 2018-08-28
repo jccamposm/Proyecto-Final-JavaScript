@@ -1,10 +1,19 @@
 var objPantalla = document.getElementById('display')
+var Operando1, Operando2, Resultado
+var Suma, Resta, Mult, Divi
 
-var button1 = document.getElementById('1')
 
 var Calculadora = {
   init: function () {
+    Operando1 = 0;
+    Operando2 = 0;
+    Resultado = 0;
+    Suma = false;
+    Resta = false;
+    Mult = false;
+    Divi = false;
 
+    var button1 = document.getElementById('1')
     button1.addEventListener('click', function(){
       if (objPantalla.innerHTML == "0") {
         objPantalla.innerHTML = "1"
@@ -151,7 +160,13 @@ var Calculadora = {
 
     var buttonON = document.getElementById('on')
     buttonON.addEventListener('click', function() {
-      objPantalla.innerHTML = "0"
+      objPantalla.innerHTML = "0";
+      Suma = false;
+      Resta = false;
+      Mult = false;
+      Divi = true;
+      Operando1 = 0;
+      Operando2 = 0;
     })
 
     var buttonSign = document.getElementById('sign')
@@ -163,7 +178,124 @@ var Calculadora = {
         objPantalla.innerHTML = CadenaValor.replace("-","")
       }
     })
+
+    var buttonSuma = document.getElementById('mas')
+    buttonSuma.addEventListener('click', function() {
+      if (objPantalla.innerHTML != "0") {
+        if (Operando1 == 0) {
+          Operando1 = Number(objPantalla.innerHTML)
+          Suma = true;
+          Resta = false;
+          Mult = false;
+          Divi = false;
+          objPantalla.innerHTML = "";
+          //buttonSuma.style = "filter: sepia(100%)"
+        } else {
+          Suma = true;
+          Resta = false;
+          Mult = false;
+          Divi = false;
+          objPantalla.innerHTML = "";
+        }
+      }
+    })
+
+    var buttonResta = document.getElementById('menos')
+    buttonResta.addEventListener('click', function() {
+      if (objPantalla.innerHTML != "0") {
+        if (Operando1 == 0) {
+          Operando1 = Number(objPantalla.innerHTML)
+          Suma = false;
+          Resta = true;
+          Mult = false;
+          Divi = false;
+          objPantalla.innerHTML = "";
+        } else {
+          Suma = true;
+          Resta = false;
+          Mult = false;
+          Divi = false;
+          objPantalla.innerHTML = "";
+        }
+      }
+    })
+
+    var buttonMultiplica = document.getElementById('por')
+    buttonMultiplica.addEventListener('click', function() {
+      if (objPantalla.innerHTML != "0") {
+        if (Operando1 == 0) {
+          Operando1 = Number(objPantalla.innerHTML)
+          Suma = false;
+          Resta = false;
+          Mult = true;
+          Divi = false;
+          objPantalla.innerHTML = "";
+        } else {
+          Suma = true;
+          Resta = false;
+          Mult = false;
+          Divi = false;
+          objPantalla.innerHTML = "";
+        }
+      }
+    })
+
+    var buttonDivide = document.getElementById('dividido')
+    buttonDivide.addEventListener('click', function() {
+      if (objPantalla.innerHTML != "0") {
+        if (Operando1 == 0) {
+          Operando1 = Number(objPantalla.innerHTML)
+          Suma = false;
+          Resta = false;
+          Mult = false;
+          Divi = true;
+          objPantalla.innerHTML = "";
+        } else {
+          Suma = true;
+          Resta = false;
+          Mult = false;
+          Divi = false;
+          objPantalla.innerHTML = "";
+        }
+      }
+    })
+
+    var buttonResult = document.getElementById('igual')
+    buttonResult.addEventListener('click', function () {
+      if (objPantalla.innerHTML != "") {
+        if (Operando1 != 0) {
+          Operando2 = Number(objPantalla.innerHTML)
+          if (Suma == true) {
+            Resultado = Operando1 + Operando2;
+          } else {
+            if (Resta == true) {
+              Resultado = Operando1 - Operando2;
+            } else {
+              if (Mult == true) {
+                Resultado = Operando1 * Operando2;
+              } else {
+                Resultado = Operando1 / Operando2;
+              }
+            }
+          }
+        }else {
+          alert("No ha digitado la cifra del primer operando")
+        }
+      } else {
+        alert("Debe digitar el segundo operando para la operación")
+      }
+      var ResPant
+      ResPant = Resultado.toString()
+      objPantalla.innerHTML = ResPant.substring(0,8)
+      Suma = false;
+      Resta = false;
+      Mult = false;
+      Divi = false;
+      Operando1 = Number(objPantalla.innerHTML);
+      Operando2 = 0;
+    })
   },
+
   capturaTeclado: function (event) {
     var tecla = event.which || event.keyCode;
     // alert(tecla);
@@ -316,7 +448,13 @@ var Calculadora = {
       default:
         alert(tecla);
     }
-  }
+  },
+
+  // SumaOp: function (Op1, Op2) {
+  //   var Canti
+  //   Canti = Op1 + Op2;
+  //   return Canti;
+  // }
 }
 
 Calculadora.init();
