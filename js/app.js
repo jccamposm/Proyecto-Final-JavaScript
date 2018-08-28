@@ -164,7 +164,7 @@ var Calculadora = {
       Suma = false;
       Resta = false;
       Mult = false;
-      Divi = true;
+      Divi = false;
       Operando1 = 0;
       Operando2 = 0;
     })
@@ -184,19 +184,13 @@ var Calculadora = {
       if (objPantalla.innerHTML != "0") {
         if (Operando1 == 0) {
           Operando1 = Number(objPantalla.innerHTML)
-          Suma = true;
-          Resta = false;
-          Mult = false;
-          Divi = false;
-          objPantalla.innerHTML = "";
-          //buttonSuma.style = "filter: sepia(100%)"
-        } else {
-          Suma = true;
-          Resta = false;
-          Mult = false;
-          Divi = false;
-          objPantalla.innerHTML = "";
         }
+        //buttonSuma.style = "filter: sepia(100%)"
+        Suma = true;
+        Resta = false;
+        Mult = false;
+        Divi = false;
+        objPantalla.innerHTML = "";
       }
     })
 
@@ -205,18 +199,12 @@ var Calculadora = {
       if (objPantalla.innerHTML != "0") {
         if (Operando1 == 0) {
           Operando1 = Number(objPantalla.innerHTML)
-          Suma = false;
-          Resta = true;
-          Mult = false;
-          Divi = false;
-          objPantalla.innerHTML = "";
-        } else {
-          Suma = true;
-          Resta = false;
-          Mult = false;
-          Divi = false;
-          objPantalla.innerHTML = "";
         }
+        Suma = false;
+        Resta = true;
+        Mult = false;
+        Divi = false;
+        objPantalla.innerHTML = "";
       }
     })
 
@@ -225,18 +213,12 @@ var Calculadora = {
       if (objPantalla.innerHTML != "0") {
         if (Operando1 == 0) {
           Operando1 = Number(objPantalla.innerHTML)
-          Suma = false;
-          Resta = false;
-          Mult = true;
-          Divi = false;
-          objPantalla.innerHTML = "";
-        } else {
-          Suma = true;
-          Resta = false;
-          Mult = false;
-          Divi = false;
-          objPantalla.innerHTML = "";
         }
+        Suma = false;
+        Resta = false;
+        Mult = true;
+        Divi = false;
+        objPantalla.innerHTML = "";
       }
     })
 
@@ -245,18 +227,12 @@ var Calculadora = {
       if (objPantalla.innerHTML != "0") {
         if (Operando1 == 0) {
           Operando1 = Number(objPantalla.innerHTML)
-          Suma = false;
-          Resta = false;
-          Mult = false;
-          Divi = true;
-          objPantalla.innerHTML = "";
-        } else {
-          Suma = true;
-          Resta = false;
-          Mult = false;
-          Divi = false;
-          objPantalla.innerHTML = "";
         }
+        Suma = false;
+        Resta = false;
+        Mult = false;
+        Divi = true;
+        objPantalla.innerHTML = "";
       }
     })
 
@@ -444,6 +420,87 @@ var Calculadora = {
           var CadenaValor = objPantalla.innerHTML
           objPantalla.innerHTML = CadenaValor.replace("-","")
         }
+        break;
+      case 43:
+        if (objPantalla.innerHTML != "0") {
+          if (Operando1 == 0) {
+            Operando1 = Number(objPantalla.innerHTML)
+          }
+          Suma = true;
+          Resta = false;
+          Mult = false;
+          Divi = false;
+          objPantalla.innerHTML = "";
+        }
+        break;
+      case 42:
+        if (objPantalla.innerHTML != "0") {
+          if (Operando1 == 0) {
+            Operando1 = Number(objPantalla.innerHTML)
+          }
+          Suma = false;
+          Resta = false;
+          Mult = true;
+          Divi = false;
+          objPantalla.innerHTML = "";
+        }
+        break;
+      case 47:
+          if (objPantalla.innerHTML != "0") {
+            if (Operando1 == 0) {
+              Operando1 = Number(objPantalla.innerHTML)
+            }
+            Suma = false;
+            Resta = false;
+            Mult = false;
+            Divi = true;
+            objPantalla.innerHTML = "";
+          }
+          break;
+      case 95:
+        if (objPantalla.innerHTML != "0") {
+          if (Operando1 == 0) {
+            Operando1 = Number(objPantalla.innerHTML)
+          }
+          Suma = false;
+          Resta = true;
+          Mult = false;
+          Divi = false;
+          objPantalla.innerHTML = "";
+        }
+        break;
+      case 13:
+        if (objPantalla.innerHTML != "") {
+          if (Operando1 != 0) {
+            Operando2 = Number(objPantalla.innerHTML)
+            if (Suma == true) {
+              Resultado = Operando1 + Operando2;
+            } else {
+              if (Resta == true) {
+                Resultado = Operando1 - Operando2;
+              } else {
+                if (Mult == true) {
+                  Resultado = Operando1 * Operando2;
+                } else {
+                  Resultado = Operando1 / Operando2;
+                }
+              }
+            }
+          }else {
+            alert("No ha digitado la cifra del primer operando")
+          }
+        } else {
+          alert("Debe digitar el segundo operando para la operación")
+        }
+        var ResPant
+        ResPant = Resultado.toString()
+        objPantalla.innerHTML = ResPant.substring(0,8)
+        Suma = false;
+        Resta = false;
+        Mult = false;
+        Divi = false;
+        Operando1 = Number(objPantalla.innerHTML);
+        Operando2 = 0;
         break;
       default:
         alert(tecla);
